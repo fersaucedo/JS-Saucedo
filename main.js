@@ -65,9 +65,9 @@ function comprar() {
 
         if (producto) {
             total += producto.precio * cantidadValidada;
-            alert('El subtotal de la compra es:' + total);
+            alert('El subtotal de la compra es: $' + total);
         } else {
-            alert('El producto no se encuentra en stock.');
+            alert('El producto no se encuentra en stock o ha ingresado una opción incorrecta.');
         };
 
         seguirComprando = confirm('Desea agregar otro producto?');
@@ -97,9 +97,9 @@ function calcularEnvio(totalCompra) {
         alert('Como su compra supera los $15000 ,el envio es gratis! El total de la compra es: ' + totalCompra);
     } else if (envio && totalCompra < 15000 && totalCompra !== 0) {
         totalCompra += 580;
-        alert('El costo de envío es de $580. El total de la compra es: ' + totalCompra);
+        alert('El costo de envío es de $580. El total de la compra es: $' + totalCompra);
     } else {
-        alert('El costo total de la compra es: ' + totalCompra);
+        alert('El costo total de la compra es: $' + totalCompra);
     }
 };
 
