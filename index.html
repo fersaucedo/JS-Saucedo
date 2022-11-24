@@ -1,75 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Administrador de Pacientes</title>
-    <!--Bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Simulador Carrito</title>
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/custom.css">
 </head>
+
 <body>
-    <h2 class="text-center my-5 titulo">Administrador de Pacientes de Veterinaria</h2>
-    <div class="container mt-5 p-5">
-        <div id="contenido" class="row">
-            <div class="col-md-6 agregar-cita">
-                <form id="nueva-cita">
-                    <legend class="mb-4">Datos del Paciente</legend>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-lg-4 col-form-label">Nombre Mascota:</label>
-                        <div class="col-sm-8 col-lg-8">
-                            <input type="text" id="mascota" name="mascota" class="form-control" placeholder="Nombre Mascota">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-lg-4 col-form-label">Propietario:</label>
-                        <div class="col-sm-8 col-lg-8">
-                            <input type="text" id="propietario" name="propietario" class="form-control"  placeholder="Nombre Dueño de la Mascota">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-lg-4 col-form-label">Teléfono:</label>
-                        <div class="col-sm-8 col-lg-8">
-                            <input type="tel" id="telefono" name="telefono" class="form-control"  placeholder="Número de Teléfono">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-lg-4 col-form-label">Fecha:</label>
-                        <div class="col-sm-8 col-lg-8">
-                            <input type="date" id="fecha" name="fecha" class="form-control">
-                        </div>
-                    </div>
+    <header id="header" class="header">
+        <div class="container">
+            <div class="row">
+                <div class="four columns">
+                    <img src="img/logo.jpg" id="logo">
+                </div>
+                <div class="two columns u-pull-right">
+                    <ul>
+                        <li class="submenu">
+                            <img src="img/cart.png" id="img-carrito">
+                            <div id="carrito">
 
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-lg-4 col-form-label">Hora:</label>
-                        <div class="col-sm-8 col-lg-8">
-                            <input type="time" id="hora" name="hora" class="form-control">
-                        </div>
-                    </div>
+                                <table id="lista-carrito" class="u-full-width">
+                                    <thead>
+                                        <tr>
+                                            <th>Imagen</th>
+                                            <th>Nombre</th>
+                                            <th>Precio UNIDAD</th>
+                                            <th>Cantidad</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
 
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-lg-4 col-form-label">Sintomas:</label>
-                        <div class="col-sm-8 col-lg-8">
-                            <textarea id="sintomas" name="sintomas" class="form-control"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                            <button type="submit" class="btn btn-success w-100 d-block">Crear Cita</button>
-                    </div>
-                </form>
+                                <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="col-md-6">
-                <h2 id="administra" class="mb-4">Administra tus Citas</h2>
-                <ul id="citas" class="list-group lista-citas"></ul>
+        </div>
+    </header>
+
+
+    <div id="hero">
+        <div class="container">
+            <div class="row">
+                <div class="six columns">
+                    <div class="contenido-hero">
+                        <h2>Aprende algo nuevo</h2>
+                        <p>Todos los cursos a mitad de precio</p>
+                        <form action="#" id="busqueda" method="post" class="formulario">
+                            <input class="u-full-width" type="text" placeholder="¿Que te gustaría Aprender?"
+                                id="buscador">
+                            <input type="submit" id="submit-buscador" class="submit-buscador">
+                        </form>
+                    </div>
+                </div>
             </div>
-        </div> <!--.row-->
-    </div><!--.container-->
+        </div>
+    </div>
 
+    <div class="barra">
+        <div class="container">
+            <div class="row">
+                <div class="four columns icono icono1">
+                    <p>20,000 Cursos en línea</p>
+                </div>
+                <div class="four columns icono icono2">
+                    <p>Instructores Expertos</p>
+                </div>
+                <div class="four columns icono icono3">
+                    <p>Acceso de por vida</p>
+                </div>
+            </div>
+        </div>
 
+    </div>
+
+    <div id="lista-cursos" class="container">
+        <h1 id="encabezado" class="encabezado">Cursos En Línea</h1>
+        <div class="row">
+            <div class="four columns">
+                <div class="card">
+                    <img src="img/curso1.jpg" class="imagen-curso u-full-width">
+                    <div class="info-card">
+                        <h4>HTML5 para Principiantes</h4>
+                        <img src="img/estrellas.png">
+                        <p class="precio">$2000 <span class="u-pull-right ">$1000</span></p>
+                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="1">Agregar
+                            Al Carrito</a>
+                    </div>
+                </div>
+                <!--.card-->
+            </div>
+            <div class="four columns">
+                <div class="card">
+                    <img src="img/curso2.jpg" class="imagen-curso u-full-width">
+                    <div class="info-card">
+                        <h4>Curso de Comida Vegetariana</h4>
+                        <img src="img/estrellas.png">
+                        <p class="precio">$2000 <span class="u-pull-right ">$1000</span></p>
+                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="2">Agregar
+                            Al Carrito</a>
+                    </div>
+                </div>
+            </div>
+            <div class="four columns">
+                <div class="card">
+                    <img src="img/curso3.jpg" class="imagen-curso u-full-width">
+                    <div class="info-card">
+                        <h4>Guitarra para Principiantes</h4>
+                        <img src="img/estrellas.png">
+                        <p class="precio">$2000 <span class="u-pull-right ">$1000</span></p>
+                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="3">Agregar
+                            Al Carrito</a>
+                    </div>
+                </div>
+                <!--.card-->
+            </div>
+
+        </div>
+        <!--.row-->
+        <div class="row">
+            <div class="four columns">
+                <div class="card">
+                    <img src="img/curso4.jpg" class="imagen-curso u-full-width">
+                    <div class="info-card">
+                        <h4>Huerta en tu casa</h4>
+                        <img src="img/estrellas.png">
+                        <p class="precio">$2000 <span class="u-pull-right ">$1000</span></p>
+                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="4">Agregar
+                            Al Carrito</a>
+                    </div>
+                </div>
+                <!--.card-->
+            </div>
+            <div class="four columns">
+                <div class="card">
+                    <img src="img/curso5.jpg" class="imagen-curso u-full-width">
+                    <div class="info-card">
+                        <h4>Decoración con productos de tu hogar</h4>
+                        <img src="img/estrellas.png">
+                        <p class="precio">$2000 <span class="u-pull-right ">$1000</span></p>
+                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="5">Agregar
+                            Al Carrito</a>
+                    </div>
+                </div>
+                <!--.card-->
+            </div>
+            <div class="four columns">
+                <div class="card">
+                    <img src="img/curso1.jpg" class="imagen-curso u-full-width">
+                    <div class="info-card">
+                        <h4>CSS para Principiantes</h4>
+                        <img src="img/estrellas.png">
+                        <p class="precio">$2000 <span class="u-pull-right ">$1000</span></p>
+                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="6">Agregar
+                            Al Carrito</a>
+                    </div>
+                </div>
+                <!--.card-->
+            </div>
+        </div>
+        <!--.row-->
+        <div class="row">
+            <div class="four columns">
+                <div class="card">
+                    <img src="img/curso2.jpg" class="imagen-curso u-full-width">
+                    <div class="info-card">
+                        <h4>Comida Mexicana para principiantes</h4>
+                        <img src="img/estrellas.png">
+                        <p class="precio">$2000 <span class="u-pull-right ">$1000</span></p>
+                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="7">Agregar
+                            Al Carrito</a>
+                    </div>
+                </div>
+                <!--.card-->
+            </div>
+            <div class="four columns">
+                <div class="card">
+                    <img src="img/curso3.jpg" class="imagen-curso u-full-width">
+                    <div class="info-card">
+                        <h4>Estudio Musical en tu casa</h4>
+                        <img src="img/estrellas.png">
+                        <p class="precio">$2000 <span class="u-pull-right ">$1000</span></p>
+                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="8">Agregar
+                            Al Carrito</a>
+                    </div>
+                </div>
+                <!--.card-->
+            </div>
+            <div class="four columns">
+                <div class="card">
+                    <img src="img/curso4.jpg" class="imagen-curso u-full-width">
+                    <div class="info-card">
+                        <h4>Cosecha tus propias frutas y verduras</h4>
+                        <img src="img/estrellas.png">
+                        <p class="precio">$2000 <span class="u-pull-right ">$1000</span></p>
+                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="9">Agregar
+                            Al Carrito</a>
+                    </div>
+                </div>
+                <!--.card-->
+            </div>
+        </div>
+        <!--.row-->
+        <div class="row">
+            <div class="four columns">
+                <div class="card">
+                    <img src="img/curso5.jpg" class="imagen-curso u-full-width">
+                    <div class="info-card">
+                        <h4>Prepara galletas caseras</h4>
+                        <img src="img/estrellas.png">
+                        <p class="precio">$2000 <span class="u-pull-right ">$1000</span></p>
+                        <a href="#" class="u-full-width button-primary button input agregar-carrito"
+                            data-id="10">Agregar Al Carrito</a>
+                    </div>
+                </div>
+                <!--.card-->
+            </div>
+            <div class="four columns">
+                <div class="card">
+                    <img src="img/curso1.jpg" class="imagen-curso u-full-width">
+                    <div class="info-card">
+                        <h4>JavaScript para principiantes</h4>
+                        <img src="img/estrellas.png">
+                        <p class="precio">$2000 <span class="u-pull-right ">$1000</span></p>
+                        <a href="#" class="u-full-width button-primary button input agregar-carrito"
+                            data-id="11">Agregar Al Carrito</a>
+                    </div>
+                </div>
+                <!--.card-->
+            </div>
+            <div class="four columns">
+                <div class="card">
+                    <img src="img/curso2.jpg" class="imagen-curso u-full-width">
+                    <div class="info-card">
+                        <h4>100 Recetas de Comida Natural</h4>
+
+                        <img src="img/estrellas.png">
+                        <p class="precio">$2000 <span class="u-pull-right ">$1000</span></p>
+                        <a href="#" class="u-full-width button-primary button input agregar-carrito"
+                            data-id="12">Agregar Al Carrito</a>
+                    </div>
+                </div>
+                <!--.card-->
+            </div>
+        </div>
+        <!--.row-->
+    </div>
+
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="four columns">
+                    <nav id="principal" class="menu">
+                        <a class="enlace" href="#">Para tu Negocio</a>
+                        <a class="enlace" href="#">Conviertete en Instructor</a>
+                        <a class="enlace" href="#">Aplicaciones Móviles</a>
+                        <a class="enlace" href="#">Soporte</a>
+                        <a class="enlace" href="#">Temas</a>
+                    </nav>
+                </div>
+                <div class="four columns">
+                    <nav id="secundaria" class="menu">
+                        <a class="enlace" href="#">¿Quienes Somos?</a>
+                        <a class="enlace" href="#">Empleo</a>
+                        <a class="enlace" href="#">Blog</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="js/main.js"></script>
 
 </body>
+
 </html>
